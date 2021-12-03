@@ -1,0 +1,84 @@
+{% extends 'structure.html' %}
+{% block body %}
+<div class="center" style="margin-top: 100px">
+    <div class="tui-window">
+        <fieldset class="tui-fieldset">
+            <legend>Cadastro</legend>
+                <fieldset class="tui-input-fieldset">
+                    <legend>Dados Basicos</legend>
+                    Nome...........: <input class="tui-input" type="text"/><br>
+                    Sobrenome......: <input class="tui-input" type="text"/><br>
+                    Nascimento.....: <input class="tui-input" type="date"/><br>
+                    Sexo...........: <select class="tui-input">
+                                        <option value="">ESCOLHA</option>
+                                        <option value="0">FEMININO</option>
+                                        <option value="1">MASCULINO</option>
+                                    </select><br>
+                </fieldset><br>
+                <fieldset class="tui-input-fieldset">
+                    <legend>Endereco</legend>
+                    Estado.........: <select class="tui-input">
+                                        <option value="">ESCOLHA</option>
+                                        <option value="RJ">RIO DE JANEIRO</option>
+                                        <option value="SP">SAO PAULO</option>
+                                    </select><br>
+                    Municipio......: <input class="tui-input" type="text"/><br>
+                    Bairro.........: <input class="tui-input" type="text"/><br>
+                    CEP............: <input class="tui-input" type="text"/><br><br>
+
+                    Endereço.......: <input class="tui-input" type="text"/><br>
+                    Numero.........: <input class="tui-input" type="text"/><br>
+                    Complemento....: <input class="tui-input" type="text"/><br>
+                </fieldset><br>
+        <div class="row">
+            <div class="col s4 m4 l4">
+                <button class="tui-button red-168 white-text">Limpar</button>
+            </div>
+            <div class="col s4 m4 l4">
+                <button class="tui-button">Salvar</button>
+            </div>
+            <div class="col s4 m4 l4">
+                <button class="tui-button yellow-168 white-text">Novo</button>
+            </div>
+        </div>
+        </fieldset>
+    </div><br><br>
+    <div class="tui-window">
+        <fieldset class="tui-fieldset">
+            <legend>Lista de Cadastrados</legend>
+            <table class="tui-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Nascimento</th>
+                        <th>Sexo</th>
+                        <th>Estado</th>
+                        <th>Municipio</th>
+                        <th>CEP</th>
+                        <th>Endereco</th>
+                        <th>Numero</th>
+                        <th>Complemento</th>
+                        <th>Bairro</th>
+                    </tr>
+                </thead>
+                <tbody>{% for cadastro in cadastro %}
+                    <tr>
+                        <td>{{cadastro.nome}}</td>
+                        <td>{{cadastro.sobrenome}}</td>
+                        <td>{{cadastro.nascimento}}</td>
+                        <td>{{cadastro.sexo}}</td>
+                        <td>{{cadastro.estado}}</td>
+                        <td>{{cadastro.municipio}}</td>
+                        <td>{{cadastro.CEP}}</td>
+                        <td>{{cadastro.endereco}}</td>
+                        <td>{{cadastro.numero}}</td>
+                        <td>{{cadastro.complemento}}</td>
+                        <td>{{cadastro.bairro}}</td>
+                    </tr>{% endfor %}
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+</div>
+{% endblock %}
